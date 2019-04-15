@@ -1,5 +1,4 @@
 All the Base Dockerfiles I use in my code: https://hub.docker.com/u/sharp6292
-============================================
 
 Maintainers and Developers
 ==========
