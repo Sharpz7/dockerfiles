@@ -24,7 +24,7 @@ cat > config.js <<EOF
     "path": "${STORAGE_PATH:-./data}",
     "host": "${STORAGE_HOST:-0.0.0.0}",
     "port": ${STORAGE_PORT:-6379},
-    "db": ${STORAGE_DB:-2},
+    "db": ${STORAGE_DB:"haste"},
     "expire": ${STORAGE_EXPIRE:-2592000}
   },
   "documents": {
