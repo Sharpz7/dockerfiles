@@ -8,8 +8,8 @@ WORKDIR /app
 RUN npm install
 RUN npm install rethinkdbdash
 
-COPY ./app.sh /app/
-COPY rethink.js /app/
+COPY ./app.sh /app/app.sh
+COPY ./rethink.js /app/rethink.js
 RUN chmod 755 app.sh
 
 CMD [ "./app.sh" ]
