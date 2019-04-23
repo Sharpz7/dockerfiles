@@ -9,10 +9,10 @@ RUN pip3 install pipenv
 
 RUN mkdir /code-data
 RUN mkdir /extensions
-RUN mkdir /project
+RUN mkdir /projects
 
 RUN chown -R coder /code-data
 RUN chown -R coder /extensions
-RUN chown -R coder /project
+RUN chown -R coder /projects
 
 USER coder
