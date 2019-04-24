@@ -17,15 +17,7 @@ jobs:
       - run:
           name: "Build"
           command: |
-            for dir in */; do
-                if ($dir -ne ".circleci") && ($dir -ne "README.md"); then
-                    cd $dir
-                    docker pull sharp6292/${dir}:latest || true
-                    docker build --cache-from sharp6292/${dir}:latest -f "Dockerfile" -t sharp6292/${dir}:latest .
-                    docker push sharp6292/${dir}:latest
-                    cd ..
-                fi
-            done
+            for dir in */; do echo $dir; done
 
 workflows:
   version: 2
