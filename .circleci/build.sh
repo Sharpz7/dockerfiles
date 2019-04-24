@@ -1,11 +1,11 @@
 #!/bin/sh
 
-arr=./*
+arr=$(ls ./)
 
-for ((i=0; i<${#arr[@]}; i++)); do
-    if (${arr[$i]} -ne ".circleci") {
-        docker pull sharp6292/${arr[$i]}:latest || true
-        docker build --cache-from sharp6292/${arr[$i]}:latest -f "${arr[$i]}/Dockerfile" -t sharp6292/${arr[$i]}:latest .
-        docker push sharp6292/${arr[$i]}:latest
+for item in $arr; do
+    if ($item -ne ".circleci") {
+        docker pull sharp6292/${item}:latest || true
+        docker build --cache-from sharp6292/${item}:latest -f "${item}/Dockerfile" -t sharp6292/${item}:latest .
+        docker push sharp6292/${item}:latest
     }
 done
