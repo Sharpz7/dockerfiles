@@ -1,0 +1,22 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: docker:18-git
+
+    steps:
+      - setup_remote_docker
+
+      - run:
+          name: "Setup dependencies"
+          command: |
+            git clone https://github.com/Sharpz7/dockerfiles
+            cd dockerfiles
+            ./.circleci/build.sh
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build
