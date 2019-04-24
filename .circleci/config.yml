@@ -13,8 +13,23 @@ jobs:
           command: |
             git clone https://github.com/Sharpz7/dockerfiles
             cd dockerfiles
-            chmod u+x .circleci/build.sh
-            ./.circleci/build.sh
+            ls
+
+      - run:
+          name: "Build"
+          command: |
+            arr=$(ls)
+
+            for item in $arr; do
+                $dir = $item
+                if ("$dir" -ne ".circleci") && ("$dir" -ne "README.md"); then
+                    cd "$dir"
+                    docker pull sharp6292/${dir}:latest || true
+                    docker build --cache-from sharp6292/${dir}:latest -f "Dockerfile" -t sharp6292/${dir}:latest .
+                    docker push sharp6292/${dir}:latest
+                    cd ..
+                fi
+            done
 
 workflows:
   version: 2

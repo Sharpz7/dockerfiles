@@ -1,6 +1,6 @@
 #!/bin/sh
 
-arr=$(./*)
+arr=$(ls)
 
 for item in $arr; do
     $dir = $item
