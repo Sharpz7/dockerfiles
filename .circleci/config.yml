@@ -12,12 +12,12 @@ jobs:
           name: "Setup dependencies"
           command: |
             git clone https://github.com/Sharpz7/dockerfiles
-            cd dockerfiles
 
       - run:
           name: "Build"
           command: |
-            for dir in */; do echo $dir; done
+            cd dockerfiles
+            for dir in *; do echo $dir; done
 
 workflows:
   version: 2
