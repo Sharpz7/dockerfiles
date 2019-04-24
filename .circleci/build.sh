@@ -1,3 +1,5 @@
+#!/bin/bash
+
 arr=(./*)
 
 for ((i=0; i<${#arr[@]}; i++)); do
