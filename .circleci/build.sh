@@ -3,9 +3,9 @@
 arr=$(ls ./)
 
 for item in $arr; do
-    if ($item -ne ".circleci") {
+    if ($item -ne ".circleci"); then
         docker pull sharp6292/${item}:latest || true
         docker build --cache-from sharp6292/${item}:latest -f "${item}/Dockerfile" -t sharp6292/${item}:latest .
         docker push sharp6292/${item}:latest
-    }
+    fi
 done
