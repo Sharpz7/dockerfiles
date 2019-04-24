@@ -1,9 +1,9 @@
 #!/bin/sh
 
-arr=$(ls -d ./)
+arr=$(ls ./)
 
 for item in $arr; do
-    if ("$item" -ne ".circleci"); then
+    if ("$item" -ne ".circleci") && ("$item" -ne "README.md"); then
         cd "$item"
         docker pull sharp6292/${item}:latest || true
         docker build --cache-from sharp6292/${item}:latest -f "Dockerfile" -t sharp6292/${item}:latest .
