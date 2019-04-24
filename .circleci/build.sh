@@ -1,6 +1,6 @@
 #!/bin/sh
 
-arr=(./*)
+arr=./*
 
 for ((i=0; i<${#arr[@]}; i++)); do
     if (${arr[$i]} -ne ".circleci") {
