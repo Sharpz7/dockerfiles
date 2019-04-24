@@ -12,7 +12,6 @@ jobs:
           name: "Setup dependencies"
           command: |
             git clone https://github.com/Sharpz7/dockerfiles
-            cd dockerfiles
 
       - run:
           name: "Build"
@@ -20,6 +19,7 @@ jobs:
             cd dockerfiles
             for dir in */; do
               cd "$dir"
+              $dir = "${dir::-1}"
               docker pull sharp6292/"${dir}":latest || true
               docker build --cache-from sharp6292/"${dir}":latest -f "Dockerfile" -t sharp6292/"${dir}":latest .
               docker push sharp6292/"${dir}":latest
