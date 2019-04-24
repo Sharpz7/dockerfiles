@@ -18,7 +18,7 @@ jobs:
       - run:
           name: "Build"
           command: |
-            arr=(./*)
+            arr=./*
 
             for item in "${arr[@]}"; do
                 $dir = "$item"
