@@ -21,11 +21,7 @@ RUN apt-get install -y \
 RUN apt-get install -y python3-pip && \
     pip3 install docker-compose
 
-RUN rm -r /home/coder/project
-
 USER coder
-
-WORKDIR /home/coder/
 
 ENTRYPOINT ["dumb-init", "code-server"]
 
