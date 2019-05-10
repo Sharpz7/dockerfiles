@@ -18,8 +18,8 @@ RUN apt-get install -y \
     apt-get update && \
     apt-get install -y docker-ce docker-ce-cli containerd.io
 
-RUN apt-get install -y py-pip && \
-    pip install docker-compose
+RUN apt-get install -y python3-pip && \
+    pip3 install docker-compose
 
 RUN rm -r /home/coder/project
 
