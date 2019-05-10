@@ -2,7 +2,7 @@ FROM codercom/code-server
 
 USER root
 
-RUN apt-get install \
+RUN apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -15,7 +15,7 @@ RUN apt-get install \
     $(lsb_release -cs) stable" && \
     apt-get install docker-ce docker-ce-cli containerd.io
 
-RUN apt-get install py-pip && \
+RUN apt-get install -y py-pip && \
     pip install docker-compose
 
 RUN rm -r /home/coder/project
