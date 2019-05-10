@@ -16,7 +16,9 @@ RUN apt-get install -y \
 RUN apt-get install -y \
 	zsh \
 	&& chsh -s /bin/zsh \
-    && touch /home/coder/.zshrc
+    && touch /home/coder/.zshrc \
+    && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" \
+    && usermod -m -d /home/coder coder
 
 ENV SHELL /usr/bin/zsh
 
