@@ -2,8 +2,10 @@ FROM codercom/code-server
 
 USER root
 
-RUN apt-get install python3.7 -y &&\
-    apt-get install python3-pip -y &&\
+RUN apt-get update
+
+RUN apt-get install -y python3.7 \
+    python3-pip &&\
     pip3 install pipenv &&\
     mkdir /code-data &&\
     mkdir /extensions &&\
