@@ -16,7 +16,7 @@ RUN apt-get install -y \
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) stable" && \
     apt-get update && \
-    apt-get install docker-ce docker-ce-cli containerd.io
+    apt-get install -y docker-ce docker-ce-cli containerd.io
 
 RUN apt-get install -y py-pip && \
     pip install docker-compose
