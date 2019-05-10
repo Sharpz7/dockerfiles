@@ -2,8 +2,6 @@ FROM codercom/code-server
 
 USER root
 
-COPY ./app.sh ./app.sh
-
 RUN apt-get install python3.7 -y &&\
     apt-get install python3-pip -y &&\
     pip3 install pipenv &&\
