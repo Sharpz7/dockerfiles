@@ -10,8 +10,7 @@ RUN apt-get install -y python3.7 \
     mkdir /code-data &&\
     mkdir /extensions &&\
     chown -R coder /code-data &&\
-    chown -R coder /extensions &&\
-    echo "coder:password" | chpasswd
+    chown -R coder /extensions
 
 USER coder
 
