@@ -2,7 +2,7 @@ FROM codercom/code-server
 
 USER root
 
-RUN apt-get update -y %%\
+RUN apt-get update %%\
     apt-get install -y \
     apt-transport-https \
     ca-certificates \
