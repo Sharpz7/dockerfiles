@@ -2,8 +2,9 @@ FROM codercom/code-server
 
 USER root
 
-RUN apt-get update %%\
-    apt-get install -y \
+RUN apt-get update
+
+RUN apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -14,6 +15,7 @@ RUN apt-get update %%\
     add-apt-repository \
     "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) stable" && \
+    apt-get update && \
     apt-get install docker-ce docker-ce-cli containerd.io
 
 RUN apt-get install -y py-pip && \
