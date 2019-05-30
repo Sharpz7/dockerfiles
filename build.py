@@ -10,13 +10,13 @@ for loc in locs:
 
 num = len(builds) // 4
 
-total = {"1": num, "2": num, "3": num, "4": num}
+total = {"0": num, "1": num, "2": num, "3": num}
 if len(builds) % 4 != 0:
     for i in range(1, (len(builds) % 4)+1):
         total[str(i)] += 1
 
 count = 0
-job = 1
+job = 0
 job_code = ""
 for build in builds:
     count += 1
