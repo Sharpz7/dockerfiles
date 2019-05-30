@@ -18,7 +18,7 @@ jobs:
 
       - run:
           name: Create Build Files
-          command: python run build.py
+          command: python build.py
 
       - persist_to_workspace:
           root: /tmp/workspace
