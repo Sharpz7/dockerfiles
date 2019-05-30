@@ -31,7 +31,8 @@ for build in builds:
     )
     job_code += sh
     if count >= total[str(job)]:
-        count = 0
         with open(f'./builds/build-{job}.sh', 'w') as file:
             file.write(job_code)
         job += 1
+        job_code = "cd ..\n"
+        count = 0
