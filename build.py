@@ -17,7 +17,7 @@ if len(builds) % 4 != 0:
 
 count = 0
 job = 0
-job_code = ""
+job_code = "cd ..\n"
 for build in builds:
     count += 1
     sh = (
