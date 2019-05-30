@@ -1,33 +1,52 @@
 version: 2.1
 
 jobs:
-  build:
+  create:
     docker:
-      - image: docker:18-git
+      - image: python:3.7.3-slim-stretch
 
     steps:
-      - setup_remote_docker
+      - checkout
 
       - run:
           name: "Setup dependencies"
           command: |
             git clone https://github.com/Sharpz7/dockerfiles
+            mkdir builds
+
+      - run:
+          name: Create Build Files
+          command: python run build.py
+
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - builds/*
+
+  build:
+    machine: true
+
+    parallelism: 4
+
+    steps:
+      - checkout
+
+      - attach_workspace:
+        at: /builds
 
       - run:
           name: "Build"
           command: |
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
-            cd dockerfiles
-            for dir in */; do
-              cd "$dir"
-              docker pull sharp6292/"${dir::-1}":latest || true
-              docker build --cache-from sharp6292/"${dir::-1}":latest -f "Dockerfile" -t sharp6292/"${dir::-1}":latest .
-              docker push sharp6292/"${dir::-1}":latest
-              cd ..
-            done
+            cd /builds
+            ls
+            echo ${CIRCLE_NODE_INDEX}
+            sh ./build-${CIRCLE_NODE_INDEX}
 
 workflows:
   version: 2
   workflow:
     jobs:
-      - build
+      - create
+      - build:
+          requires:
+            - create
