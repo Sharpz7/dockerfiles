@@ -22,9 +22,9 @@ jobs:
           command: python build.py
 
       - persist_to_workspace:
-          root: /builds
+          root: ./builds
           paths:
-            - builds/*
+            - ./*
 
   build:
     machine: true
@@ -35,7 +35,7 @@ jobs:
       - checkout
 
       - attach_workspace:
-          at: /builds
+          at: ./builds
 
       - run:
           name: "Build"
