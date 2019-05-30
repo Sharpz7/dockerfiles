@@ -40,9 +40,7 @@ jobs:
       - run:
           name: "Build"
           command: |
-            cd /builds
-            ls
-            echo ${CIRCLE_NODE_INDEX}
+            cd ./builds
             sh ./build-${CIRCLE_NODE_INDEX}
 
 workflows:
