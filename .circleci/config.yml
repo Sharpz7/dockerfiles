@@ -41,7 +41,7 @@ jobs:
           name: "Build"
           command: |
             cd ./builds
-            sh ./build-${CIRCLE_NODE_INDEX}
+            sh build-${CIRCLE_NODE_INDEX}.sh
 
 workflows:
   version: 2
