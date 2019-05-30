@@ -15,6 +15,7 @@ jobs:
             apt-get install -y git
             git clone https://github.com/Sharpz7/dockerfiles
             mkdir builds
+            mkdir /builds
 
       - run:
           name: Create Build Files
