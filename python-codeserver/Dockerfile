@@ -21,9 +21,7 @@ RUN apt-get install -y \
 	zsh \
 	&& chsh -s /bin/zsh \
     && touch /home/coder/.zshrc \
-    && usermod -m -d /home/coder coder \
-    && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" \
-    && sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="gnzh"/g' ~/.zshrc
+    && usermod -m -d /home/coder coder
 
 ENV SHELL /usr/bin/zsh
 
@@ -38,6 +36,7 @@ RUN mkdir /home/coder/.ssh &&\
     chmod 700 /home/coder/.ssh && chmod 600 /home/coder/.ssh/authorized_keys
 
 COPY config /home/coder/.ssh/config
+COPY notes.txt /home/coder/notes.txt
 COPY commands.sh /home/coder/commands.sh
 
 
