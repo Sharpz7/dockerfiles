@@ -21,13 +21,23 @@ RUN apt-get install -y \
 	zsh \
 	&& chsh -s /bin/zsh \
     && touch /home/coder/.zshrc \
-    && sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" \
     && usermod -m -d /home/coder coder
+
 ENV SHELL /usr/bin/zsh
 
 # Other nice things
 RUN apt-get install -y neofetch
 
 USER coder
+
+# ssh support
+RUN mkdir /home/coder/.ssh &&\
+    touch /home/coder/.ssh/authorized_keys &&\
+    chmod 700 /home/coder/.ssh && chmod 600 /home/coder/.ssh/authorized_keys
+
+COPY config /home/coder/.ssh/config
+COPY commands.sh /home/coder/commands.sh
+
+
 
 
