@@ -31,12 +31,14 @@ RUN apt-get install -y neofetch
 USER coder
 
 # ssh support
+COPY config /home/coder/.ssh/config
+
 RUN mkdir /home/coder/.ssh &&\
     touch /home/coder/.ssh/contabo.ssh &&\
     touch /home/coder/.ssh/github.ssh &&\
-    chmod 700 /home/coder/.ssh && chmod 600 /home/coder/.ssh/contabo.ssh && chmod 600 /home/coder/.ssh/github.ssh
+    chmod 700 /home/coder/.ssh && chmod 600 /home/coder/.ssh/contabo.ssh && chmod 600 /home/coder/.ssh/github.ssh && \
+    chmod 600 /home/coder/.ssh/config
 
-COPY config /home/coder/.ssh/config
 COPY notes.txt /home/coder/notes.txt
 COPY commands.sh /home/coder/commands.sh
 COPY ssh+ /home/coder/ssh+
