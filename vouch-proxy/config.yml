@@ -15,7 +15,7 @@ vouch:
   # allowAllUsers: true
 
   whiteList:
-    - adam.mcathur62@gmail.com
+    - adam.mcarthur62@gmail.com
 
 oauth:
   # create a new OAuth application at:
