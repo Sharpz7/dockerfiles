@@ -10,10 +10,12 @@ vouch:
   # each of these domains must serve the url https://login.$domains[0] https://login.$domains[1] ...
   domains:
   - mcaq.me
-  - mcadesigns.co.uk
 
   # set allowAllUsers: true to use Vouch Proxy to just accept anyone who can authenticate at GitHub
   # allowAllUsers: true
+
+  whiteList:
+    - adam.mcathur62@gmail.com
 
 oauth:
   # create a new OAuth application at:
