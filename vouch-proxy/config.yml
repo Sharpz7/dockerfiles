@@ -12,7 +12,8 @@ vouch:
   - mcaq.me
 
   # set allowAllUsers: true to use Vouch Proxy to just accept anyone who can authenticate at GitHub
-  allowAllUsers: true
+  whiteList:
+  - Sharpz7
 
 oauth:
   # create a new OAuth application at:
