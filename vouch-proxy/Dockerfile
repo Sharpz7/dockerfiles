@@ -3,6 +3,7 @@ FROM voucher/vouch-proxy as builder
 FROM bash:5
 
 COPY --from=builder / /vouch
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 COPY config.yml /vouch/config/config.yml
 
 WORKDIR /vouch
