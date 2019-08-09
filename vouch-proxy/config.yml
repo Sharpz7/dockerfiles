@@ -9,7 +9,7 @@ vouch:
   # https://developer.github.com/apps/building-oauth-apps/authorizing-oauth-apps/#redirect-urls
   # each of these domains must serve the url https://login.$domains[0] https://login.$domains[1] ...
   domains:
-  - vs.mcaq.me
+  - mcaq.me
 
   # set allowAllUsers: true to use Vouch Proxy to just accept anyone who can authenticate at GitHub
   allowAllUsers: true
