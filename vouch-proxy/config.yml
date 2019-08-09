@@ -19,6 +19,6 @@ oauth:
   # create a new OAuth application at:
   # https://github.com/settings/applications/new
   provider: github
-  client_id: ${VCLIENTID:?please set a client ID}
-  client_secret: ${VCLIENTSECRET:?Please set a client secret}
+  client_id: XXXXX1
+  client_secret: XXXXX2
   # endpoints set from https://godoc.org/golang.org/x/oauth2/github
