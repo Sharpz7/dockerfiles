@@ -1,4 +1,4 @@
-FROM docker:18-git
+FROM docker:19.03.1-git
 
 RUN apk add py-pip \
     python-dev \
