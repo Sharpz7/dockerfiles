@@ -30,8 +30,6 @@ jobs:
     parallelism: 4
 
     steps:
-      - checkout
-
       - attach_workspace:
           at: ./builds
 
