@@ -11,9 +11,6 @@ jobs:
       - run:
           name: "Setup dependencies"
           command: |
-            apt-get update -y
-            apt-get install -y git
-            git clone https://github.com/Sharpz7/dockerfiles
             mkdir builds
             mkdir /builds
 
