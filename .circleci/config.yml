@@ -23,7 +23,7 @@ jobs:
             - ./builds
   build:
     docker:
-      - image: bash:latest
+      - image: stretch-slim:latest
 
     parallelism: 4
 
@@ -35,7 +35,7 @@ jobs:
           name: "Build"
           command: |
             cd ./builds
-            bash build-${CIRCLE_NODE_INDEX}.sh
+            sh build-${CIRCLE_NODE_INDEX}.sh
 
 workflows:
   version: 2
