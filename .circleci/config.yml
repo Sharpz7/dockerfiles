@@ -15,12 +15,15 @@ jobs:
 
       - run:
           name: Create Build Files
-          command: python build.py
+          command: |
+            python build.py
+            mkdir ./workspace
+            cp -r ./builds ./workspace
 
       - persist_to_workspace:
           root: .
           paths:
-            - ./builds
+            - ./workspace
 
   build:
     docker:
@@ -39,8 +42,7 @@ jobs:
       - run:
           name: "Build"
           command: |
-            cd ./builds
-            sh build-${CIRCLE_NODE_INDEX}.sh
+            sh ./workspace/build-${CIRCLE_NODE_INDEX}.sh
 
 workflows:
   version: 2
