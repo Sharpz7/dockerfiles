@@ -5,7 +5,7 @@ RUN go get -u github.com/tcnksm/ghr
 RUN mkdir /copy
 RUN cp ${GOPATH}/bin/ghr /copy/ghr
 
-FROM bash:latest
+FROM ubuntu:latest
 
 COPY --from=builder "/copy/ghr" "/bin/ghr"
 
