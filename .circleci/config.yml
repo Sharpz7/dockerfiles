@@ -21,6 +21,7 @@ jobs:
           root: .
           paths:
             - ./builds
+
   build:
     docker:
       - image: docker:stable
@@ -28,8 +29,9 @@ jobs:
     parallelism: 4
 
     steps:
-
       - setup_remote_docker
+
+      - checkout
 
       - attach_workspace:
           at: .
