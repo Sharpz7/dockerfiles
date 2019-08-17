@@ -18,7 +18,7 @@ jobs:
           command: |
             python build.py
             mkdir ./workspace
-            cp -r ./builds ./workspace
+            cp -a ./builds/. ./workspace
 
       - persist_to_workspace:
           root: .
