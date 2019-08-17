@@ -5,6 +5,6 @@ RUN go get -u github.com/tcnksm/ghr
 
 FROM bash:latest
 
-COPY --from=builder "${GOROOT}/bin/ghr" "/ghr/ghr"
+COPY --from=builder "${GOPATH}/bin/ghr" "/ghr/ghr"
 
 ENV PATH="/ghr:${PATH}"
