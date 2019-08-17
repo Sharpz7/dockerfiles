@@ -17,11 +17,10 @@ RUN apt-get install -y \
     pip3 install pipenv
 
 # zsh and zsh plugins
-RUN apt-get install -y \
-	zsh \
-	&& chsh -s /bin/zsh \
-    && touch /home/coder/.zshrc \
-    && usermod -m -d /home/coder coder
+RUN apt-get install -y zsh &&\
+	chsh -s /bin/zsh &&\
+    touch /home/coder/.zshrc &&\
+    usermod -m -d /home/coder coder
 
 ENV SHELL /usr/bin/zsh
 
