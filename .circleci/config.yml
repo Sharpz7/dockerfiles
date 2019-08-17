@@ -42,6 +42,7 @@ jobs:
       - run:
           name: "Build"
           command: |
+            ls ./workspace
             sh ./workspace/build-${CIRCLE_NODE_INDEX}.sh
 
 workflows:
