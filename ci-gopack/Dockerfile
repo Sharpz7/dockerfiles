@@ -1,4 +1,4 @@
-FROM golang:1.12
+FROM golang:1.12-alpine3.9
 
 RUN mkdir /gopack
 RUN wget https://github.com/Sharpz7/gopack/releases/download/0.0.1a/linux.tar.gz
