@@ -5,8 +5,9 @@ RUN go get -u github.com/tcnksm/ghr
 RUN mkdir /copy
 RUN cp ${GOPATH}/bin/ghr /copy/ghr
 
-FROM debian:stretch
+FROM bash:latest
 
+RUN apk add ca-certificates
 COPY --from=builder "/copy/ghr" "/bin/ghr"
 
 ENV PATH="/bin:${PATH}"
