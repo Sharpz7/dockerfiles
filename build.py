@@ -36,11 +36,12 @@ for num, executor in enumerate(split):
     job_code = ""
     for build in executor:
         sh = (
+            "set -e\n"
             f"docker login -u $DOCKER_USER -p $DOCKER_PASS\n"
             f"cd {build.name}\n"
             f"docker pull sharp6292/{build.name}:{build.version} || true\n"
             f"docker build --cache-from sharp6292/{build.name}:{build.version}"
-            f"-f Dockerfile -t sharp6292/{build}:{build.version} .\n"
+            f" -f Dockerfile -t sharp6292/{build}:{build.version} .\n"
             f"docker push sharp6292/{build.name}:{build.version}\n"
             "cd ..\n"
         )
