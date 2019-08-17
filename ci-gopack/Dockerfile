@@ -1,4 +1,4 @@
-FROM golang:1.12-alpine3.9
+FROM golang:1.12
 
 RUN apk add git && \
     mkdir /gopack && \
