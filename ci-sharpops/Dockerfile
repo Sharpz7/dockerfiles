@@ -1,4 +1,4 @@
-FROM bash:latest
+FROM debian:stable
 
 RUN apk add ca-certificates
 RUN wget https://github.com/Sharpz7/sharp-ops/releases/download/0.1.0a/linux.tar.gz && \
