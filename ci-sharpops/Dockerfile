@@ -1,4 +1,4 @@
-FROM debian:stable
+FROM ubuntu:18.04
 
 RUN apt-get install -y wget tar
 RUN wget https://github.com/Sharpz7/sharp-ops/releases/download/0.1.0a/linux.tar.gz && \
