@@ -1,4 +1,4 @@
-FROM codercom/code-server:latest
+FROM codercom/code-server:2.preview.5-vsc1.37.0
 
 USER root
 
@@ -29,7 +29,7 @@ RUN apt-get install -y neofetch
 RUN wget https://github.com/Sharpz7/sharp-ops/releases/download/0.3.0a/linux.tar.gz && \
     tar -C /usr/local/bin/ -zxvf linux.tar.gz && \
     chown coder:coder /usr/local/bin/sharpops && \
-    chown coder:coder /usr/local/bin/sharpops
+    chown coder:coder /usr/local/bin/sharpops-data
 
 # ssh support
 COPY config /home/coder/.ssh/config
