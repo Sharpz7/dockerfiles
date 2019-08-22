@@ -47,3 +47,5 @@ USER coder
 
 RUN chmod +x /usr/local/bin/sharpops
 
+RUN git config --global user.name "Sharpz7"
+RUN git config --global user.email "adam@mcaq.me"
