@@ -1,0 +1,44 @@
+name: Dockerfile Builds
+
+on: [push]
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+      
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+
+      - name: Install dependencies
+        run: |
+            mkdir builds
+            mkdir ./workspace
+
+      - name: Create builds
+        run: |
+            python build.py
+            cp -a ./builds/. ./workspace
+        
+  builds:
+    runs-on: ubuntu-latest
+    strategy:
+        max-parallel: 4
+        matrix:
+          num: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v1
+      
+      - name: Install dependencies
+        run: |
+            mkdir builds
+            mkdir ./workspace
+
+      - name: Run Docker Builds
+        run: |
+            ls ./workspace
+            sh ./workspace/build-${{ matrix.num }}.sh
