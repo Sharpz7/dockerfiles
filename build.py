@@ -1,6 +1,6 @@
 import os
 
-BANNED = [".circleci", ".git", "build.py", "README.md", "builds", ".gitignore"]
+BANNED = [".circleci", ".git", "build.py", "README.md", "builds", ".gitignore", ".github"]
 EXECUTOR_COUNT = 4
 
 
