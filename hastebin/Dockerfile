@@ -6,7 +6,7 @@ RUN apk -U upgrade \
 RUN git clone https://github.com/seejohnrun/haste-server.git /app
 WORKDIR /app
 RUN npm install
-RUN npm install rethinkdbdash
+RUN npm install pg
 
 COPY ./app.sh /app/app.sh
 RUN chmod 755 app.sh
