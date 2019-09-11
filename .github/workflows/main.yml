@@ -3,12 +3,13 @@ name: Dockerfile Builds
 on: [push]
 
 jobs:
-  create:
+  builds:
     runs-on: ubuntu-latest
 
-    services:
-      volumes:
-        "/workspace:/workspace"
+    strategy:
+        max-parallel: 4
+        matrix:
+          num: [0, 1, 2, 3]
 
     steps:
       - uses: actions/checkout@v1
@@ -16,7 +17,7 @@ jobs:
       - name: Set up Python 3.7
         uses: actions/setup-python@v1
         with:
-          python-version: 3.7
+            python-version: 3.7
 
       - name: Install dependencies
         run: |
@@ -26,23 +27,6 @@ jobs:
         run: |
             python build.py
             cp -a ./builds/. /workspace
-
-  builds:
-    runs-on: ubuntu-latest
-
-    needs: create
-
-    services:
-      volumes:
-        "/workspace:/workspace"
-
-    strategy:
-        max-parallel: 4
-        matrix:
-          num: [0, 1, 2, 3]
-
-    steps:
-      - uses: actions/checkout@v1
 
       - name: Run Docker Builds
         run: |
