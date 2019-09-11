@@ -26,9 +26,7 @@ jobs:
       - name: Create builds
         run: |
             python build.py
-            cp -a ./builds/. /workspace
 
       - name: Run Docker Builds
         run: |
-            ls /workspace
-            sh /workspace/build-${{ matrix.num }}.sh
+            sh ./builds/build-${{ matrix.num }}.sh
