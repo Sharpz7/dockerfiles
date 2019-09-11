@@ -30,3 +30,6 @@ jobs:
       - name: Run Docker Builds
         run: |
             sh ./builds/build-${{ matrix.num }}.sh
+        env:
+            DOCKER_USER: ${{ secrets.DOCKER_USER }}
+            DOCKER_PASS: ${{ secrets.DOCKER_PASS }}

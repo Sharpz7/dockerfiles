@@ -7,8 +7,6 @@ COPY --from=builder templates/ templates/
 COPY --from=builder /static /static
 COPY --from=builder /vouch-proxy /vouch-proxy
 
-COPY config.yml /config/config.yml
-
 COPY setup.sh setup.sh
 RUN chmod +x ./setup.sh
 

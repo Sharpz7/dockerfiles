@@ -11,6 +11,4 @@ RUN npm install rethinkdbdash
 COPY ./app.sh /app/app.sh
 RUN chmod 755 app.sh
 
-COPY config.json /app/config.js
-
 CMD [ "./app.sh" ]
