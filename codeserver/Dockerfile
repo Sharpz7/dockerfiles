@@ -1,4 +1,4 @@
-FROM codercom/code-server:2.preview.5-vsc1.37.0
+FROM codercom/code-server:v2
 
 USER root
 
@@ -14,7 +14,8 @@ RUN mkdir /code-data &&\
 RUN apt-get install -y \
     python3.7 \
     python3-pip &&\
-    pip3 install pipenv
+    pip3 install pipenv &&\
+    pip3 install flake8
 
 # zsh and zsh plugins
 RUN apt-get install -y zsh &&\
