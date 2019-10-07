@@ -12,11 +12,13 @@ def split_builds(builds, n):
 
 
 class Build:
-    def __init__(self, name):
-        self.name = name
-        if "$" in self.name:
+    def __init__(self, location):
+        self.location = location
+
+        if "$" in self.location:
             self.name, self.version = self.name.split("$")
         else:
+            self.name = self.location
             self.version = "latest"
 
     def __repr__(self):
@@ -36,7 +38,7 @@ for num, executor in enumerate(split):
         sh = (
             "set -e\n"
             f"docker login -u $DOCKER_USER -p $DOCKER_PASS\n"
-            f"cd {build.name}\n"
+            f"cd {build.location}\n"
             f"docker pull sharp6292/{build.name}:{build.version} || true\n"
             f"docker build --cache-from sharp6292/{build.name}:{build.version}"
             f" -f Dockerfile -t sharp6292/{build.name}:{build.version} .\n"
