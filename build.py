@@ -15,8 +15,8 @@ class Build:
     def __init__(self, location):
         self.location = location
 
-        if "$" in self.location:
-            self.name, self.version = self.location.split("$")
+        if ";" in self.location:
+            self.name, self.version = self.location.split(";")
         else:
             self.name = self.location
             self.version = "latest"
@@ -39,7 +39,7 @@ for num, executor in enumerate(split):
         sh = (
             "set -e\n"
             f"docker login -u $DOCKER_USER -p $DOCKER_PASS\n"
-            f"cd {build.location}\n"
+            f"cd '{build.location}'\n"
             f"docker pull sharp6292/{build.name}:{build.version} || true\n"
             f"docker build --cache-from sharp6292/{build.name}:{build.version}"
             f" -f Dockerfile -t sharp6292/{build.name}:{build.version} .\n"
