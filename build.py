@@ -30,6 +30,7 @@ builds = []
 for loc in locs:
     if loc not in BANNED:
         builds.append(Build(loc))
+
 split = split_builds(builds, EXECUTOR_COUNT)
 
 for num, executor in enumerate(split):
