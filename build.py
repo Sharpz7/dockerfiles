@@ -14,15 +14,10 @@ def split_builds(builds, n):
 class Build:
     def __init__(self, name):
         self.name = name
-        self.version = self.check_version()
-
-    def check_version(self):
-        if os.path.isfile(f"./{self.name}/.version"):
-            with open(f"./{self.name}/.version", 'r') as file:
-                return file.read()
-
+        if "$" in self.name:
+            self.name, self.version = self.name.split("$")
         else:
-            return "latest"
+            self.version = "latest"
 
     def __repr__(self):
         return f"{self.name}, {self.version}"

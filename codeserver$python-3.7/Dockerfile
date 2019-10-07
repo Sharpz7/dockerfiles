@@ -17,14 +17,6 @@ RUN apt-get install -y \
     pip3 install pipenv &&\
     pip3 install flake8
 
-# Golang install
-RUN wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz && \
-    tar -xvf go1.12.7.linux-amd64.tar.gz && \
-    mv go /usr/local
-ENV GOROOT /usr/local/go
-ENV GOPATH /home/coder/project/go
-ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
-
 # zsh and zsh plugins
 RUN apt-get install -y zsh &&\
 	chsh -s /bin/zsh &&\
