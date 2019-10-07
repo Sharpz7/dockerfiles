@@ -16,7 +16,7 @@ class Build:
         self.location = location
 
         if "$" in self.location:
-            self.name, self.version = self.name.split("$")
+            self.name, self.version = self.location.split("$")
         else:
             self.name = self.location
             self.version = "latest"
