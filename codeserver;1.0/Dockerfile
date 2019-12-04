@@ -13,6 +13,21 @@ RUN mkdir /code-data &&\
 # C++ install
 RUN apt-get install -y gcc
 
+# Golang install
+RUN wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz && \
+    tar -xvf go1.12.7.linux-amd64.tar.gz && \
+    mv go /usr/local
+ENV GOROOT /usr/local/go
+ENV GOPATH /home/coder/project/go
+ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
+
+# Python install
+RUN apt-get install -y \
+    python3.7 \
+    python3-pip &&\
+    pip3 install pipenv &&\
+    pip3 install flake8
+
 # zsh and zsh plugins
 RUN apt-get install -y zsh &&\
 	chsh -s /bin/zsh &&\
