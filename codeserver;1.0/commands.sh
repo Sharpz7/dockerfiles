@@ -8,3 +8,6 @@ sudo chmod 600 /home/coder/.ssh/config
 
 echo 'export PATH=/home/coder/bin/:$PATH' >> .zshrc
 sed -i -e 's/ZSH_THEME="robbyrussell"/ZSH_THEME="gnzh"/g' ~/.zshrc
+
+git config --global user.name "Sharpz7"
+git config --global user.email "adam@mcaq.me"

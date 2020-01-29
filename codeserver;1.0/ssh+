@@ -1,1 +1,1 @@
-ssh adam@x.x.x.x. -p -i "~/.ssh/contabo.ssh"
+ssh user@x.x.x.x. -p -i "~/.ssh/contabo.ssh"
