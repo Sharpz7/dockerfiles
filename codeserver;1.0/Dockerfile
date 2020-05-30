@@ -11,7 +11,7 @@ RUN mkdir /code-data &&\
     chown -R coder /extensions
 
 # C++ install
-RUN apt-get install -y gcc
+RUN apt-get install -y gcc wget
 
 # Golang install
 RUN wget https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz && \
