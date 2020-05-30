@@ -28,6 +28,13 @@ RUN apt-get install -y \
     pip3 install pipenv &&\
     pip3 install flake8
 
+# Docker Install
+COPY get-docker.sh .
+
+RUN sh get-docker.sh &&\
+    curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &&\
+    chmod +x /usr/local/bin/docker-compose
+
 # zsh and zsh plugins
 RUN apt-get install -y zsh &&\
 	chsh -s /bin/zsh &&\
