@@ -4,12 +4,6 @@ USER root
 
 RUN apt-get update
 
-# Make Enviroment
-RUN mkdir /code-data &&\
-    mkdir /extensions &&\
-    chown -R coder /code-data &&\
-    chown -R coder /extensions
-
 # C++ install
 RUN apt-get install -y gcc wget
 
@@ -45,10 +39,6 @@ ENV SHELL /usr/bin/zsh
 
 # Other nice things
 RUN apt-get install -y neofetch
-RUN wget https://github.com/Sharpz7/sharp-ops/releases/download/0.3.0a/linux.tar.gz && \
-    tar -C /usr/local/bin/ -zxvf linux.tar.gz && \
-    chown coder:coder /usr/local/bin/sharpops && \
-    chown coder:coder /usr/local/bin/sharpops-data
 
 # ssh support
 COPY config /home/coder/.ssh/config
@@ -64,4 +54,7 @@ RUN chown -R coder:coder /home/coder
 
 USER coder
 
-RUN chmod +x /usr/local/bin/sharpops
+# Install Sharp Programs
+
+RUN sudo curl -s -L https://github.com/Sharpz7/gopack/releases/download/0.1.2/install.sh | sudo bash
+RUN sudo curl -s -L https://github.com/Sharpz7/sharpdev/releases/download/0.1.1/install.sh | sudo bash
