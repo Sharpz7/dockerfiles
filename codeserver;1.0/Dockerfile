@@ -56,6 +56,7 @@ USER coder
 
 # Install Sharp Programs
 
-RUN sudo curl -s -L https://github.com/Sharpz7/sharpdev/releases/download/0.1.2/install.sh | sudo bash
 RUN sudo curl -s -L https://github.com/Sharpz7/gopack/releases/download/0.1.2/install.sh | sudo bash
+RUN sudo curl -s -L https://github.com/Sharpz7/sharpdev/releases/download/0.1.2/install.sh | sudo bash
+
 
