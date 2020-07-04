@@ -20,7 +20,10 @@ RUN apt-get install -y \
     python3.7 \
     python3-pip &&\
     pip3 install pipenv &&\
-    pip3 install flake8
+    pip3 install pylint
+
+# PHP Install
+RUN apt-get install php -y
 
 # Docker Install
 COPY get-docker.sh .
