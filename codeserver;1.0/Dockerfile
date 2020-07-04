@@ -1,4 +1,4 @@
-FROM codercom/code-server:3.4.0
+FROM codercom/code-server:3.4.1
 
 USER root
 
@@ -17,7 +17,7 @@ ENV PATH $GOPATH/bin:$GOROOT/bin:$PATH
 
 # Python install
 RUN apt-get install -y \
-    python3.7 \
+    python3.8 \
     python3-pip &&\
     pip3 install pipenv &&\
     pip3 install flake8
