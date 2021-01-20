@@ -1,6 +1,0 @@
-Remember to look for terminal in vscode.
-(terminal shell)
-
-Extensions:
-Gruvbox
-Python
