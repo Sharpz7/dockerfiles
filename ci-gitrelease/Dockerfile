@@ -1,7 +1,7 @@
 FROM golang:1.18-alpine3.16 as builder
 
 RUN apk add git
-RUN go get -u github.com/tcnksm/ghr
+RUN go install github.com/tcnksm/ghr@latest
 RUN mkdir /copy
 RUN cp ${GOPATH}/bin/ghr /copy/ghr
 
